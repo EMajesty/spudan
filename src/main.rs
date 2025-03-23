@@ -41,7 +41,7 @@ fn main() -> anyhow::Result<()> {
     //
     // let display_pins = (r1, g1, b1, r2, g2, b2, a, b, c, d, e, clk, lat, oe);
     //
-    // let mut display = Hub75::new(display_pins, 1);
+    // let mut display = Hub75::new(display_pins, 4);
 
     let mut wifi = EspWifi::new(peripherals.modem, sysloop, Some(nvs))?;
 
@@ -71,4 +71,7 @@ fn main() -> anyhow::Result<()> {
         led.set_low()?;
         FreeRtos::delay_ms(500);
     }
+}
+
+fn clock_tick() {
 }
