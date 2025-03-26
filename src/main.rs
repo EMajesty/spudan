@@ -24,24 +24,24 @@ fn main() -> anyhow::Result<()> {
     let nvs = EspDefaultNvsPartition::take()?;
     let mut delay = FreeRtos;
 
-    // let r1 = PinDriver::output(peripherals.pins.gpio13).unwrap();
-    // let g1 = PinDriver::output(peripherals.pins.gpio12).unwrap();
-    // let b1 = PinDriver::output(peripherals.pins.gpio14).unwrap();
-    // let r2 = PinDriver::output(peripherals.pins.gpio27).unwrap();
-    // let g2 = PinDriver::output(peripherals.pins.gpio26).unwrap();
-    // let b2 = PinDriver::output(peripherals.pins.gpio25).unwrap();
-    // let a = PinDriver::output(peripherals.pins.gpio33).unwrap();
-    // let b = PinDriver::output(peripherals.pins.gpio32).unwrap();
-    // let c = PinDriver::output(peripherals.pins.gpio4).unwrap();
-    // let d = PinDriver::output(peripherals.pins.gpio16).unwrap();
-    // let e = PinDriver::output(peripherals.pins.gpio17).unwrap();
-    // let clk = PinDriver::output(peripherals.pins.gpio5).unwrap();
-    // let lat = PinDriver::output(peripherals.pins.gpio18).unwrap();
-    // let oe = PinDriver::output(peripherals.pins.gpio19).unwrap();
-    //
-    // let display_pins = (r1, g1, b1, r2, g2, b2, a, b, c, d, e, clk, lat, oe);
-    //
-    // let mut display = Hub75::new(display_pins, 4);
+    let r1 = PinDriver::output(peripherals.pins.gpio25).unwrap();
+    let g1 = PinDriver::output(peripherals.pins.gpio26).unwrap();
+    let b1 = PinDriver::output(peripherals.pins.gpio27).unwrap();
+    let r2 = PinDriver::output(peripherals.pins.gpio14).unwrap();
+    let g2 = PinDriver::output(peripherals.pins.gpio12).unwrap();
+    let b2 = PinDriver::output(peripherals.pins.gpio13).unwrap();
+    let a = PinDriver::output(peripherals.pins.gpio23).unwrap();
+    let b = PinDriver::output(peripherals.pins.gpio19).unwrap();
+    let c = PinDriver::output(peripherals.pins.gpio5).unwrap();
+    let d = PinDriver::output(peripherals.pins.gpio17).unwrap();
+    let e = PinDriver::output(peripherals.pins.gpio32).unwrap();
+    let clk = PinDriver::output(peripherals.pins.gpio16).unwrap();
+    let lat = PinDriver::output(peripherals.pins.gpio4).unwrap();
+    let oe = PinDriver::output(peripherals.pins.gpio15).unwrap();
+
+    let display_pins = (r1, g1, b1, r2, g2, b2, a, b, c, d, e, clk, lat, oe);
+
+    let mut display = Hub75::new(display_pins, 4);
 
     let mut wifi = EspWifi::new(peripherals.modem, sysloop, Some(nvs))?;
 
